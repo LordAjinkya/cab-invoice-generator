@@ -30,6 +30,17 @@ public class InvoiceServiceTest {
 
 
     }
+///code to test the invoice summary for multiple rides
+    @Test
+    public void givenMultipleRides_ShouldReturnInvoiceSummary(){
+        InvoiceGenerator invoice =new InvoiceGenerator();
+        Ride[] rides = {    new Ride(2.0, 5),
+                new Ride(0.1, 1)
+        };
+        InvoiceSummary invoiceSummary = invoice.calculateFare(rides);
+        InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2,30);
+        Assertions.assertEquals(expectedInvoiceSummary,invoiceSummary);
+    }
 
 
 
